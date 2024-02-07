@@ -1,10 +1,10 @@
-namespace com.saph.hakdb;
+namespace com.test.sdb;
 using {cuid} from '@sap/cds/common';
 @assert.unique:{
-    no:[no]
+    bp_no:[bp_no]
 }
-entity BusinessPartner_no : cuid {
-  no:String(6);
+entity BusinessPartner : cuid {
+    bp_no:String(6);
     @title:'Name'
     name:String(20);
  @title:'Address 1'
@@ -17,13 +17,13 @@ entity BusinessPartner_no : cuid {
     state:Association to States;
      @title:'pin code'
     pinCode:String(10);
-    @title:' Is_Gstn_Registered'
-     Is_gstn_reg:Boolean default false;
+    @title:' Is_gstn_registered'
+     Is_gstn_registered:Boolean default false;
        @title:' GSTIN number'
      Gst_num:String(20);
-       @title:' is_vendor'
+       @title:' is vendor'
     Is_vendor:Boolean default false;
-      @title:' is_customer'
+      @title:' is customer'
     Is_customer:Boolean default false;
 }
 @cds.persistence.skip
