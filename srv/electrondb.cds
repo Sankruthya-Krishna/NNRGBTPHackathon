@@ -31,7 +31,7 @@ annotate Market.BusinessPartner with @(
 
         {
             Label: 'Bussiness Partner Id',
-            Value: bp_no
+            Value: no
         },
         {
             Label: 'Name',
@@ -68,7 +68,7 @@ annotate Market.BusinessPartner with @(
             {
                 $Type: 'UI.DataField',
                 Label: 'Bussiness Partner Id',
-                Value: bp_no
+                Value: no
             },
             {
                 $Type: 'UI.DataField',

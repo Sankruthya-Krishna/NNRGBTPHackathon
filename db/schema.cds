@@ -1,10 +1,10 @@
 namespace com.test.sdb;
 using {cuid} from '@sap/cds/common';
 @assert.unique:{
-    bp_no:[bp_no]
+    no:[no]
 }
 entity BusinessPartner : cuid {
-    bp_no:String(6);
+    no:String(6);
     @title:'Name'
     name:String(20);
  @title:'Address 1'
