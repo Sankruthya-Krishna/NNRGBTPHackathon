@@ -13,6 +13,12 @@
     "@cap-js/sqlite": "^1"
   },
   "scripts": {
-    "start": "cds-serve"
-  }
+    "start": "cds-serve",
+    "watch-business": "cds watch --open business/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-store": "cds watch --open store/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/business",
+    "app/store"
+  ]
 }

@@ -6,9 +6,7 @@ module.exports = cds.service.impl(async function () {
         return results;
       });
     this.before("CREATE",  BusinessPartner, async (req) => {
-        const { no, Is_gstn_registered, Gst_num } = req.data;
-
-        // Check if Is_gstn_registered is true and Gst_num is not provided
+        const { bp_no, Is_gstn_registered, Gst_num } = req.data;
         if (Is_gstn_registered && !Gst_num) {
             req.error({
                 code: "MISSING_GST_NUM",
@@ -16,24 +14,24 @@ module.exports = cds.service.impl(async function () {
                 target: "Gst_num",
             });
         }
-        const query1 = SELECT.from( BusinessPartner).where({ no: req.data.no });
+        const query1 = SELECT.from( BusinessPartner).where({ bp_no: req.data.bp_no });
         const result = await cds.run(query1); // Execute the query using cds.run()
         if (result.length > 0) {
           req.error({
             code: "STEMAILEXISTS",
             message: " already exists",
-            target: "no",
+            target: "bp_no",
           });
         }
         
       });
       this.on('READ',States,async(req)=>{
-        genders=[
+        st=[
             {"code":"TS","description":"Telangana"},
             {"code":"AP","description":"Andra Pradesh"},
-            {"code":"MP","description":"Madhya Pradesh"},
+            {"code":"MP","description":"Madya pradesh"},
         ]
-        genders.$count=genders.length
-        return genders;
+        st.$count=st.length
+        return st;
     })
 })
